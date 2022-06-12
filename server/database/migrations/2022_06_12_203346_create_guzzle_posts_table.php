@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('guzzle_posts', function (Blueprint $table) {
             $table->id();
-            $table->increments('id');
             $table->string('name');
             $table->timestamps();
         });

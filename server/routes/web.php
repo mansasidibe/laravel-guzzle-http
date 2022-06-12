@@ -19,5 +19,3 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('post',[DataController::class, 'postRequest']);
-Route::get('get',[DataController::class, 'getRequest']);

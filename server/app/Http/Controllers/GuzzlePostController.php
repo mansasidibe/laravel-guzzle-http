@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\GuzzlePost;
 use Illuminate\Http\Request;
 
 class GuzzlePostController extends Controller
@@ -13,7 +14,8 @@ class GuzzlePostController extends Controller
      */
     public function index()
     {
-        //
+        $data = GuzzlePost::all();
+        return response()->json(['donnees' => $data], 200);
     }
 
     /**
@@ -34,7 +36,11 @@ class GuzzlePostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new GuzzlePost();
+        $data->name=$request->get('name');
+        $data->save();
+        return response()->json('Données ajoutée');
+
     }
 
     /**

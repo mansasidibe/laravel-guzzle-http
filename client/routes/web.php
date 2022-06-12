@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\GuzzlePostController;
+use App\Http\Controllers\DataController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,5 +18,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('store', [GuzzlePostController::class, 'store']);
-Route::get('index', [GuzzlePostController::class, 'index']);
+Route::post('store', [DataController::class, 'postRequest']);
+Route::get('index', [DataController::class, 'getRequest']);

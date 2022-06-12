@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class GuzzlePost extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
 }

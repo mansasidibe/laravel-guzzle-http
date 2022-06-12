@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Data;
 use Illuminate\Http\Request;
 
 class DataController extends Controller
@@ -12,9 +11,29 @@ class DataController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function getRequest()
     {
-        //
+        $client = new \GuzzleHttp\Client();
+        $request = $client->get('http://localhost:8001/api/index');
+        $response = $request->getBody()->getContents();
+        echo '<pre>';
+        print_r($response);
+        exit;
+    }
+
+    public function postRequest()
+    {
+
+        $client = new \GuzzleHttp\Client();
+        $response = $client->request('POST', 'http://localhost:8001/api/store', [
+            'form_params' => [
+                'name' => 'krunal',
+            ]
+        ]);
+        $response = $response->getBody()->getContents();
+        echo '<pre>';
+        print_r($response);
+
     }
 
     /**
@@ -41,10 +60,10 @@ class DataController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Data  $data
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Data $data)
+    public function show($id)
     {
         //
     }
@@ -52,10 +71,10 @@ class DataController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Data  $data
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Data $data)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +83,10 @@ class DataController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Data  $data
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Data $data)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +94,10 @@ class DataController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Data  $data
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Data $data)
+    public function destroy($id)
     {
         //
     }
