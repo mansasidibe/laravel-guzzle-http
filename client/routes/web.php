@@ -20,3 +20,5 @@ Route::get('/', function () {
 
 Route::post('store', [DataController::class, 'postRequest']);
 Route::get('index', [DataController::class, 'getRequest']);
+
+Route::get('mail', [DataController::class, 'mail']);

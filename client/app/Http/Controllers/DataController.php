@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Str;
 
 use Illuminate\Http\Request;
 
@@ -34,6 +35,13 @@ class DataController extends Controller
         echo '<pre>';
         print_r($response);
 
+    }
+
+    public function mail()
+    {
+        $donne = 'sidibearouna@gmail.com';
+        $string = Str::mask($donne, '*', 4, 8);
+        dd($string);
     }
 
     /**
